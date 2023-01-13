@@ -1,21 +1,36 @@
 {
+  // 编译选项
   "compilerOptions": {
+    // 目标代码（ts->js(es6+)）
     "target": "esnext",
+    // 目标代码需要使用的模块化方案(commonjs require/module.exports。esModule import/export)
     "module": "esnext",
+    // 启用严格模式
     "strict": true,
+    // 在preserve模式下生成代码中会保留JSX以供后续的转换操作使用（比如：Babel）。另外，输出文件会带有.jsx扩展名
     "jsx": "preserve",
+    // 模块解析按照node形式来解析
     "moduleResolution": "node",
+    // 跳过依赖库的类型检查
     "skipLibCheck": true,
+    // 允许commonjs导入导出和ESModule导入导出
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    // 确保import导入是正确的
     "forceConsistentCasingInFileNames": true,
+    // 类的字段声明使用Object.defineProperty
     "useDefineForClassFields": true,
+    // 生成映射文件（ts--》js）
     "sourceMap": true,
+    // 文件路径在解析时, 基本url
     "baseUrl": ".",
+    // 指定解析时，使用的类型
     "types": ["webpack-env", "element-plus/global"],
+    // 路径解析
     "paths": {
       "@/*": ["src/*"]
     },
+    // 指定项目中使用的类型
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [

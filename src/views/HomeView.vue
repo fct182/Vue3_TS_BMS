@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-    <el-button type="primary">Primary</el-button>
+    <el-button @click="onLoading" type="primary">Primary</el-button>
     <el-button type="success">Success</el-button>
     <el-button type="info">Info</el-button>
     <el-button type="warning">Warning</el-button>
@@ -24,16 +24,18 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { ElLoading } from 'element-plus';
 import HelloWorld from 'components/HelloWorld.vue'; // @ is an alias to /src
 
-export default defineComponent({
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-});
+function onLoading() {
+  const loading = ElLoading.service({
+    text: '页面中使用loading'
+  });
+  setTimeout(() => {
+    loading.close();
+  }, 2000);
+}
 </script>
 
 <style>

@@ -2,6 +2,8 @@
 
 > bms-Background management system-后台管理系统
 
+`Vue3` + `VueRouter` + `setup语法` + `Pinia` + `TypeScript` + `Element-plus`
+
 ## Project setup
 
 ```
