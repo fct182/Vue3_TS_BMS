@@ -3,6 +3,8 @@ const AutoImport = require('unplugin-auto-import/webpack');
 const Components = require('unplugin-vue-components/webpack');
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 const ElementPlus = require('unplugin-element-plus/webpack');
+// const Icons = require('unplugin-icons/webpack');
+// const IconsResolver = require('unplugin-icons/resolver');
 
 module.exports = defineConfig({
   // transpileDependencies: true,
@@ -14,11 +16,25 @@ module.exports = defineConfig({
     },
     plugins: [
       AutoImport({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [
+          ElementPlusResolver()
+          // IconsResolver({
+          //   prefix: 'Icon'
+          // })
+        ]
       }),
       Components({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [
+          // 自动注册图标组件
+          // IconsResolver({
+          //   enabledCollections: ['ep']
+          // }),
+          ElementPlusResolver()
+        ]
       }),
+      // Icons({
+      //   autoInstall: true
+      // }),
       ElementPlus()
     ]
   }

@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 import { IHttpAxiosRequestConfig, IHttpInterceptors } from './type';
 
 import { ElLoading } from 'element-plus';
-import { LoadingInstance } from 'element-plus/lib/components/loading/src/loading';
+import type { LoadingInstance } from 'element-plus/lib/components/loading/src/loading';
 // 引入样式（element-plus按需引入不会引入样式--坑！！）
 // import 'element-plus/theme-chalk/el-loading.css';
 
