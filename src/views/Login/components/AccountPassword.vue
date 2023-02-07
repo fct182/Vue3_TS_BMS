@@ -4,7 +4,12 @@
  * @Date: 2023/01/13 16:56:33
 -->
 <template>
-  <el-form :model="loginForm" :rules="rules" label-width="60">
+  <el-form
+    ref="accountPasswordFormRef"
+    :model="loginForm"
+    :rules="rules"
+    label-width="70"
+  >
     <el-form-item required prop="account" label="账号">
       <el-input
         autocomplete="off"
@@ -25,9 +30,10 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-import type { FormInstance, FormRules } from 'element-plus';
+import { reactive, defineExpose, ref } from 'vue';
+import type { FormRules, FormInstance } from 'element-plus';
 
+const accountPasswordFormRef = ref<FormInstance>();
 const loginForm = reactive({
   account: '',
   password: ''
@@ -38,6 +44,8 @@ const rules = reactive<FormRules>({
   account: [{ required: true, message: '请输入你的账号', trigger: 'blur' }],
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 });
+
+defineExpose({ loginForm, accountPasswordFormRef });
 </script>
 
 <style scoped></style>
