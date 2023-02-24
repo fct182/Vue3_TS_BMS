@@ -11,19 +11,19 @@ const devHttp = new HttpRequest({
       if (token && typeof config.headers?.set === 'function') {
         config.headers.set('Authorization', `Bearer ${token}`);
       }
-      console.log('请求成功的回调', config);
+      // console.log('请求成功的回调', config);
       return config;
     },
     requestErrorInterceptors(err) {
-      console.log(err);
+      // console.log(err);
       return Promise.reject(err);
     },
     responseSuccessInterceptors(res) {
-      console.log('响应成功的回调', res);
+      // console.log('响应成功的回调', res);
       return res;
     },
     responseErrorInterceptors(err) {
-      console.log(err);
+      // console.log(err);
       return Promise.reject(err);
     }
   }

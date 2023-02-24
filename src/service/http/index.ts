@@ -42,7 +42,7 @@ class HttpRequest {
     // 装载公有拦截器---所有实例都有
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('所有实例的请求成功拦截器');
+        // console.log('所有实例的请求成功拦截器');
         // 发起请求时，加载Loading
         this.loading = ElLoading.service({
           lock: true,
@@ -56,7 +56,7 @@ class HttpRequest {
     );
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('所有实例的响应成功拦截器');
+        // console.log('所有实例的响应成功拦截器');
         // if (!res.data.success) {
         //   // 弹框提示,请求失败叭啦
         // }
@@ -65,7 +65,7 @@ class HttpRequest {
         return res.data;
       },
       (err) => {
-        console.log('所有实例的响应失败拦截器');
+        // console.log('所有实例的响应失败拦截器');
         // err.response
         // 通过判断返回的数据的code，msg提示
 

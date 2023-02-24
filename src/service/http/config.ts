@@ -8,7 +8,8 @@ const config = {
 
 // 通过环境配置
 if (process.env.NODE_ENV === 'development') {
-  config.baseURL = 'http://123.207.32.32:8000/';
+  // config.baseURL = 'http://123.207.32.32:8000/';
+  config.baseURL = '/api';
 } else if (process.env.NODE_ENV === 'production') {
   config.baseURL = '';
 } else if (process.env.NODE_ENV === 'test') {

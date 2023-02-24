@@ -17,5 +17,13 @@ import 'normalize.css';
 // 引入封装好的axios
 // import { $http } from './service';
 // import { DataType } from './service/http/type';
+// collapse
+import { ElCollapseTransition } from 'element-plus';
+// fade/zoom
+import 'element-plus/theme-chalk/base.css';
 
-createApp(App).use(router).use(pinia).mount('#app');
+createApp(App)
+  .use(router)
+  .use(pinia)
+  .component(ElCollapseTransition.name, ElCollapseTransition)
+  .mount('#app');
