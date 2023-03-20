@@ -38,7 +38,11 @@ export const useUserStore = defineStore('user', {
      * @param  data 账号密码对象
      */
     async accountLogin(data: iAccountLogin) {
+      // 用户登录
       const res = await userAccountLogin(data);
+      // 本地化/pinia仓库存储token
+      // this.token = res.data.token;
+      // setCache('token', res.data.token);
       console.log('登录信息', res);
     }
   }

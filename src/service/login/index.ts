@@ -12,7 +12,7 @@ enum LoginUrl {
  * @param data  登录的账号密码数据
  */
 export function userAccountLogin(data: iAccountLogin) {
-  return $http.post({
+  return $http.post<any>({
     url: LoginUrl.accountLogin,
     data: {
       name: data.account,

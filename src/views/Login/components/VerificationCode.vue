@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, defineExpose, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import type { FormRules, FormInstance } from 'element-plus';
 

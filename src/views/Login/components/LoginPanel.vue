@@ -49,8 +49,8 @@ import { UserFilled, Message } from '@element-plus/icons-vue';
 import { ref } from 'vue';
 import AccountPassword from './AccountPassword.vue';
 import VerificationCode from './VerificationCode.vue';
-import { setCache, removeCache } from '@/utils/cache';
 import { useUserStore } from 'src/store/module/user';
+import { useRouter } from 'vue-router';
 
 enum LoginType {
   AccountPassword = 'accountPassword',
@@ -58,6 +58,7 @@ enum LoginType {
 }
 
 const userStore = useUserStore();
+const router = useRouter();
 
 // 当前tab
 const currentTabName = ref(LoginType.AccountPassword);
@@ -96,7 +97,9 @@ async function handleLogin() {
           }
           console.log('账号密码:', accountPassword.value?.loginForm);
           // 登录
-          userStore.accountLogin(accountPassword.value!.loginForm);
+          // const res = userStore.accountLogin(accountPassword.value!.loginForm);
+          // todo---跳转到首页
+          // router.push('/home');
         } else {
           console.log('error submit!', fields);
         }
@@ -118,6 +121,7 @@ async function handleLogin() {
   }
   setTimeout(() => {
     isLoginLoading.value = false;
+    router.replace('/home');
   }, 2000);
 }
 </script>
@@ -132,13 +136,13 @@ async function handleLogin() {
   .el-tabs {
     width: 360px;
     border-radius: 10px;
-    /deep/ .el-tabs__nav-wrap {
+    :deep(.el-tabs__nav-wrap) {
       border-radius: 10px 10px 0 0;
     }
-    /deep/ .el-tabs__header {
+    :deep(.el-tabs__header) {
       border-radius: 10px 10px 0 0;
     }
-    /deep/ .el-tabs__content {
+    :deep(.el-tabs__content) {
       height: 120px;
     }
   }

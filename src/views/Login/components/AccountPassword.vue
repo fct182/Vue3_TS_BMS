@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, defineExpose, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import type { FormRules, FormInstance } from 'element-plus';
 
 const accountPasswordFormRef = ref<FormInstance>();

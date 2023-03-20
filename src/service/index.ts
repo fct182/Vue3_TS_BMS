@@ -1,3 +1,4 @@
+import { getCache } from '@/utils/cache';
 import HttpRequest from './http';
 import config from './http/config';
 
@@ -7,7 +8,7 @@ const devHttp = new HttpRequest({
   interceptors: {
     requestSuccessInterceptors(config) {
       // 携带Token
-      const token = 'abc';
+      const token = getCache('token');
       if (token && typeof config.headers?.set === 'function') {
         config.headers.set('Authorization', `Bearer ${token}`);
       }
