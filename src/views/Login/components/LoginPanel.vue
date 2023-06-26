@@ -51,6 +51,7 @@ import AccountPassword from './AccountPassword.vue';
 import VerificationCode from './VerificationCode.vue';
 import { useUserStore } from 'src/store/module/user';
 import { useRouter } from 'vue-router';
+import { setCache } from '@/utils/cache';
 
 enum LoginType {
   AccountPassword = 'accountPassword',
@@ -121,6 +122,7 @@ async function handleLogin() {
   }
   setTimeout(() => {
     isLoginLoading.value = false;
+    setCache('bms-token', 'fct is logined(test)');
     router.replace('/home');
   }, 2000);
 }

@@ -42,8 +42,13 @@ export const menuList: iMenuItem[] = [
   {
     icon: <Setting />,
     index: '/setting',
-    titleText: '系统设置'
+    titleText: '系统设置',
+    children: [
+      { titleText: '用户管理', index: '/setting/user' },
+      { titleText: '友链管理', index: '/setting/friendChain' }
+    ]
   },
+  // 测试
   {
     icon: <Setting />,
     index: '6',

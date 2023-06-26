@@ -5,14 +5,22 @@
         <nav-menu @changeCollapse="changeCollapse"></nav-menu>
       </el-aside>
       <el-container class="content-container">
-        <el-header class="content-header">Header</el-header>
-        <el-main class="content-main"><router-view /></el-main>
+        <el-header class="content-header">
+          <nav-header></nav-header>
+        </el-header>
+        <el-main class="content-main">
+          <div class="main-component">
+            <router-view></router-view>
+          </div>
+          <el-backtop target=".content-main" :right="70" :bottom="50" />
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 <script setup lang="ts">
 import NavMenu from '@/components/nav-menu/nav-menu.vue';
+import NavHeader from '@/components/nav-header/nav-header.vue';
 import { ref } from 'vue';
 
 const wid = ref('200px');
@@ -60,8 +68,12 @@ function changeCollapse(type: boolean) {
       .content-main {
         height: calc(100% - 50px);
         color: #333;
-        text-align: center;
         background-color: #f0f2f5;
+        .main-component {
+          // width: 100%;
+          // height: 100%;
+          background-color: #fff;
+        }
       }
     }
   }

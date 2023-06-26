@@ -9,7 +9,7 @@
     <el-menu
       router
       :collapse="isCollapse"
-      default-active="/home"
+      :default-active="activeMenu"
       background-color="#001529"
       text-color="#909399"
       active-text-color="#fff"
@@ -70,12 +70,20 @@
 import { ref } from 'vue';
 import NavMenuLogo from './components/nav-menu-logo.vue';
 import { menuList } from '@/config/menuList';
+import { useRoute } from 'vue-router';
 
 const emits = defineEmits<{
   (e: 'changeCollapse', type: boolean): void;
 }>();
 
 const isCollapse = ref(false);
+
+// 默认展示的menu菜单
+const activeMenu = ref('/home');
+
+const route = useRoute();
+// 页面刷新时，从地址栏找到左侧目录高亮部分
+activeMenu.value = route.path;
 
 /**
  * 折叠menu菜单

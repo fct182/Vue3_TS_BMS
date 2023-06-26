@@ -1,5 +1,5 @@
 <template>
-  <div class="system-setting">系统设置</div>
+  <div class="friend-chain">友链管理</div>
 </template>
 
 <script setup lang="ts"></script>
